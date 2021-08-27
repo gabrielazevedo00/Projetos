@@ -1,6 +1,6 @@
 -- Selecionando 
-SELECT * FROM sales.transactions;
-
+select * from sales.transactions;
+ 
 select count(*) from sales.transactions;
 
 select count(*) from sales.customrs;

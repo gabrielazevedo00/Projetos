@@ -1,6 +1,6 @@
 -- Selecionando 
-select * from sales.transactions;
- 
+SELECT * FROM sales.transactions;
+
 select count(*) from sales.transactions;
 
 select count(*) from sales.customrs;
@@ -37,3 +37,16 @@ where sales.date.year=2020 and sales.transactions.market_code="Mark001";
 -- Filtro distinct
 select distinct product_code from sales.transactions where market_code='Mark001';
 
+select * from sales.transactions where sales_amount=-1;
+ 
+select distinct(transactions.currency) from transactions;
+-- 'INR\r'
+-- 'INR'
+select count(*) from transactions where transactions.currency='INR\r';
+
+select count(*) from transactions where transactions.currency='INR';
+
+select * from transactions where transactions.currency='USD\r' or transactions.currency='USD';
+
+select sum(transactions.sales_amount) from transactions inner join date on transactions.order_date=date.date
+where date.year=2020 and transactions.currency='INR\r' or transactions.currency='USD\r';
